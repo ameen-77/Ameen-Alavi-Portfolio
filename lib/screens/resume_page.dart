@@ -57,11 +57,15 @@ class ResumePage extends StatelessWidget {
                   label: const Text('View Resume'),
                   onPressed: () async {
                     if (kIsWeb) {
-                      openPdfInNewTab('assets/AmeenAlavi_Resume.pdf');
+                      openPdfInNewTab('docs/assets/AmeenAlavi_Resume.pdf');
                     } else {
-                      final url = 'https://yourdomain.com/assets/AmeenAlavi_Resume.pdf';
+                      final url =
+                          'https://ameen-77.github.io/Ameen-Alavi-Portfolio/docs/assets/AmeenAlavi_Resume.pdf';
                       if (await canLaunchUrl(Uri.parse(url))) {
-                        await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+                        await launchUrl(
+                          Uri.parse(url),
+                          mode: LaunchMode.externalApplication,
+                        );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
@@ -79,13 +83,17 @@ class ResumePage extends StatelessWidget {
                   onPressed: () async {
                     if (kIsWeb) {
                       downloadPdf(
-                        'assets/AmeenAlavi_Resume.pdf',
+                        'docs/assets/AmeenAlavi_Resume.pdf',
                         'AmeenAlavi_Resume.pdf',
                       );
                     } else {
-                      final url = 'https://yourdomain.com/assets/AmeenAlavi_Resume.pdf';
+                      final url =
+                          'https://ameen-77.github.io/Ameen-Alavi-Portfolio/docs/assets/AmeenAlavi_Resume.pdf';
                       if (await canLaunchUrl(Uri.parse(url))) {
-                        await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+                        await launchUrl(
+                          Uri.parse(url),
+                          mode: LaunchMode.externalApplication,
+                        );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
