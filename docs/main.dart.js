@@ -79441,7 +79441,7 @@ $S:486}
 A.a8R.prototype={
 $0(){var s=0,r=A.O(t.H),q
 var $async$$0=A.K(function(a,b){if(a===1)return A.L(b,r)
-while(true)switch(s){case 0:q=window.open("assets/AmeenAlavi_Resume.pdf","_blank")
+while(true)switch(s){case 0:q=window.open("docs/assets/AmeenAlavi_Resume.pdf","_blank")
 A.aG6(q)
 return A.M(null,r)}})
 return A.N($async$$0,r)},
@@ -79450,7 +79450,7 @@ A.a8S.prototype={
 $0(){var s=0,r=A.O(t.H),q
 var $async$$0=A.K(function(a,b){if(a===1)return A.L(b,r)
 while(true)switch(s){case 0:q=document.createElement("a")
-q.href="assets/AmeenAlavi_Resume.pdf"
+q.href="docs/assets/AmeenAlavi_Resume.pdf"
 q.setAttribute("download","AmeenAlavi_Resume.pdf")
 q.click()
 return A.M(null,r)}})
