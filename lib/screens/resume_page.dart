@@ -88,7 +88,7 @@ class ResumePage extends StatelessWidget {
                       );
                     } else {
                       final url =
-                          'https://yourdomain.com/assets/AmeenAlavi_Resume.pdf';
+                          'https://ameen-77.github.io/Ameen-Alavi-Portfolio/assets/AmeenAlavi_Resume.pdf';
                       if (await canLaunchUrl(Uri.parse(url))) {
                         await launchUrl(
                           Uri.parse(url),
