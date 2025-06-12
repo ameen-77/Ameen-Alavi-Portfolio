@@ -18,10 +18,10 @@ class ContactPage extends StatelessWidget {
           const SizedBox(height: 24),
           Row(
             children: [
-              Icon(FontAwesomeIcons.whatsapp, color: iconColor),
+              Icon(FontAwesomeIcons.phone, color: iconColor),
               const SizedBox(width: 8),
               SelectableText(
-                '+91 735 624 5030',
+                '+971 58 244 2741',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ],
