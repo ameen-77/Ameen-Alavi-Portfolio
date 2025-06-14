@@ -1,10 +1,16 @@
+/// resume_page.dart
+/// Lets users view or download the resume PDF, with platform-specific handling.
+library;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:url_launcher/url_launcher.dart';
 // Correct conditional import for web/non-web
 import 'resume_helper_stub.dart'
     if (dart.library.html) 'resume_helper_web.dart';
+import 'widgets/resume_action_button.dart';
 
+/// ResumePage provides buttons to view or download the resume PDF.
 class ResumePage extends StatelessWidget {
   const ResumePage({super.key});
 
@@ -52,9 +58,9 @@ class ResumePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: isMobile ? 20 : 32),
-                ElevatedButton.icon(
-                  icon: const Icon(Icons.open_in_new),
-                  label: const Text('View Resume'),
+                ResumeActionButton(
+                  icon: Icons.open_in_new,
+                  label: 'View Resume',
                   onPressed: () async {
                     if (kIsWeb) {
                       openPdfInNewTab('assets/Ameen_Alavi.pdf');
@@ -66,7 +72,9 @@ class ResumePage extends StatelessWidget {
                           Uri.parse(url),
                           mode: LaunchMode.externalApplication,
                         );
+                        if (!context.mounted) return;
                       } else {
+                        if (!context.mounted) return;
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Could not open resume.'),
@@ -77,9 +85,9 @@ class ResumePage extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: isMobile ? 10 : 16),
-                ElevatedButton.icon(
-                  icon: const Icon(Icons.download),
-                  label: const Text('Download Resume'),
+                ResumeActionButton(
+                  icon: Icons.download,
+                  label: 'Download Resume',
                   onPressed: () async {
                     if (kIsWeb) {
                       downloadPdf('assets/Ameen_Alavi.pdf', 'Ameen_Alavi.pdf');
@@ -91,7 +99,9 @@ class ResumePage extends StatelessWidget {
                           Uri.parse(url),
                           mode: LaunchMode.externalApplication,
                         );
+                        if (!context.mounted) return;
                       } else {
+                        if (!context.mounted) return;
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Could not download resume.'),

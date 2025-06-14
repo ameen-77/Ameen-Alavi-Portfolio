@@ -1,16 +1,20 @@
-// main.dart
+/// main.dart
+/// Entry point for the Ameen Alavi Portfolio Flutter app.
+/// Sets up theming, routing, and the main tab navigation.
+library;
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio/screens/resume_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-import 'screens/about_page.dart';
-import 'screens/contact_page.dart';
-import 'screens/projects_page.dart';
-import 'screens/skills_page.dart';
+import 'screens/about/about_page.dart';
+import 'screens/contact/contact_page.dart';
+import 'screens/projects/projects_page.dart';
+import 'screens/skills/skills_page.dart';
+import 'screens/resume/resume_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +30,8 @@ void main() async {
   );
 }
 
+/// The root widget for the portfolio app.
+/// Handles theme switching and initializes the home page.
 class DevFolioApp extends StatefulWidget {
   final ThemeMode initialThemeMode;
   const DevFolioApp({super.key, required this.initialThemeMode});
@@ -73,6 +79,7 @@ class _DevFolioAppState extends State<DevFolioApp> {
   }
 }
 
+/// The main home page with tab navigation for all portfolio sections.
 class HomePage extends StatelessWidget {
   final VoidCallback toggleTheme;
   const HomePage({super.key, required this.toggleTheme});
@@ -152,7 +159,7 @@ class HomeContent extends StatelessWidget {
               Text(
                 "WELCOME TO MY PORTFOLIO 👋",
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: textColor.withOpacity(0.6),
+                  color: textColor.withValues(alpha: 0.6),
                 ),
               ),
               const SizedBox(height: 20),
@@ -249,9 +256,9 @@ class HomeContent extends StatelessWidget {
         const SizedBox(height: 20),
         Text(
           "WELCOME TO MY PORTFOLIO 👋",
-          style: Theme.of(
-            context,
-          ).textTheme.titleSmall?.copyWith(color: textColor.withOpacity(0.6)),
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(
+            color: textColor.withValues(alpha: 0.6),
+          ),
         ),
         const SizedBox(height: 10),
         SizedBox(
@@ -289,6 +296,8 @@ class HomeContent extends StatelessWidget {
 
 // FooterWidget for copyright and links
 class FooterWidget extends StatelessWidget {
+  const FooterWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     final textColor =
@@ -299,7 +308,7 @@ class FooterWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Divider(height: 1, color: Colors.grey.withOpacity(0.2)),
+          Divider(height: 1, color: Colors.grey.withValues(alpha: 0.2)),
           const SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -333,9 +342,9 @@ class FooterWidget extends StatelessWidget {
           const SizedBox(height: 2),
           Text(
             'Built with Flutter',
-            style: Theme.of(
-              context,
-            ).textTheme.bodySmall?.copyWith(color: textColor.withOpacity(0.7)),
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: textColor.withValues(alpha: 0.7),
+            ),
             textAlign: TextAlign.center,
           ),
         ],

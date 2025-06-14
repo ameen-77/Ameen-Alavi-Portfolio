@@ -1,6 +1,12 @@
+/// skills_page.dart
+/// Shows grouped technical skills with animated chips.
+library;
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'widgets/animated_skill_chip.dart';
 
+/// SkillsPage displays frontend, backend, and tools skills as animated chips.
 class SkillsPage extends StatelessWidget {
   const SkillsPage({super.key});
 
@@ -14,7 +20,7 @@ class SkillsPage extends StatelessWidget {
       {'label': 'Dart', 'icon': FontAwesomeIcons.dartLang},
       {'label': 'HTML', 'icon': FontAwesomeIcons.html5},
       {'label': 'CSS', 'icon': FontAwesomeIcons.css3},
-      {'label': 'Responsive UI', 'icon': FontAwesomeIcons.tabletAlt},
+      {'label': 'Responsive UI', 'icon': FontAwesomeIcons.tabletScreenButton},
       {'label': 'Figma', 'icon': FontAwesomeIcons.figma},
     ];
     final backend = [
@@ -53,27 +59,15 @@ class SkillsPage extends StatelessWidget {
             spacing: isMobile ? 6 : 10,
             runSpacing: isMobile ? 6 : 10,
             children: frontend
+                .asMap()
+                .entries
                 .map(
-                  (skill) => TweenAnimationBuilder<double>(
-                    tween: Tween(begin: 0, end: 1),
-                    duration: const Duration(milliseconds: 600),
-                    builder: (context, value, child) => Opacity(
-                      opacity: value,
-                      child: Transform.scale(
-                        scale: value,
-                        child: Chip(
-                          avatar: Icon(
-                            skill['icon'] as IconData,
-                            size: 18,
-                            color: iconColor,
-                          ),
-                          label: Text(
-                            skill['label'] as String,
-                            style: chipTextStyle,
-                          ),
-                        ),
-                      ),
-                    ),
+                  (entry) => AnimatedSkillChip(
+                    icon: entry.value['icon'] as IconData,
+                    label: entry.value['label'] as String,
+                    iconColor: iconColor,
+                    textStyle: chipTextStyle,
+                    animationIndex: entry.key,
                   ),
                 )
                 .toList(),
@@ -90,27 +84,15 @@ class SkillsPage extends StatelessWidget {
             spacing: isMobile ? 6 : 10,
             runSpacing: isMobile ? 6 : 10,
             children: backend
+                .asMap()
+                .entries
                 .map(
-                  (skill) => TweenAnimationBuilder<double>(
-                    tween: Tween(begin: 0, end: 1),
-                    duration: const Duration(milliseconds: 600),
-                    builder: (context, value, child) => Opacity(
-                      opacity: value,
-                      child: Transform.scale(
-                        scale: value,
-                        child: Chip(
-                          avatar: Icon(
-                            skill['icon'] as IconData,
-                            size: 18,
-                            color: iconColor,
-                          ),
-                          label: Text(
-                            skill['label'] as String,
-                            style: chipTextStyle,
-                          ),
-                        ),
-                      ),
-                    ),
+                  (entry) => AnimatedSkillChip(
+                    icon: entry.value['icon'] as IconData,
+                    label: entry.value['label'] as String,
+                    iconColor: iconColor,
+                    textStyle: chipTextStyle,
+                    animationIndex: entry.key,
                   ),
                 )
                 .toList(),
@@ -127,27 +109,15 @@ class SkillsPage extends StatelessWidget {
             spacing: isMobile ? 6 : 10,
             runSpacing: isMobile ? 6 : 10,
             children: tools
+                .asMap()
+                .entries
                 .map(
-                  (tool) => TweenAnimationBuilder<double>(
-                    tween: Tween(begin: 0, end: 1),
-                    duration: const Duration(milliseconds: 600),
-                    builder: (context, value, child) => Opacity(
-                      opacity: value,
-                      child: Transform.scale(
-                        scale: value,
-                        child: Chip(
-                          avatar: Icon(
-                            tool['icon'] as IconData,
-                            size: 18,
-                            color: iconColor,
-                          ),
-                          label: Text(
-                            tool['label'] as String,
-                            style: chipTextStyle,
-                          ),
-                        ),
-                      ),
-                    ),
+                  (entry) => AnimatedSkillChip(
+                    icon: entry.value['icon'] as IconData,
+                    label: entry.value['label'] as String,
+                    iconColor: iconColor,
+                    textStyle: chipTextStyle,
+                    animationIndex: entry.key,
                   ),
                 )
                 .toList(),
